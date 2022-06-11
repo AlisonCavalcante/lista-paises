@@ -1,0 +1,19 @@
+<div class="container">
+  <app-search></app-search>
+  <section class="lista-paises">
+    <div class="row">
+      <div [routerLink]="['/detalhe', p.name.common]" *ngFor="let p of paises" class="card col-md-2">
+        <div style="padding: 0;" class="card-header">
+          <img class="card-img-top" [src]="p.flags.png" alt="Imagem do País">
+        </div>
+        <div class="card-body">
+          <h5>{{p.name.common}}</h5>
+          <ul>
+            <li> População: {{p.population | number}} </li>
+            <li>Região: {{p.region}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
