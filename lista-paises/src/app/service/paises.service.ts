@@ -12,7 +12,7 @@ export class PaisesService {
   getAll(): Observable<any[]>{
     return this.http.get<any>(Constantes.URL_ALL_PAISES);
   }
-  getPais(nomePais: string): Observable<any>{
-    return this.http.get<any>(Constantes.URL_ALL_PAIS + `${nomePais}?fullText=true`);
+  getPais(nomePais: string): Observable<any[]>{
+    return this.http.get<any[]>(Constantes.URL_ALL_PAIS + `${nomePais}?fullText=true`);
   }
 }

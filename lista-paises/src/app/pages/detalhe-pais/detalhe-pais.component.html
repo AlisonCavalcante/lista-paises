@@ -1,4 +1,32 @@
 <div class="container mt-4">
-  <button routerLink="/" class="btn btn-warning">Voltar</button>
-  <div></div>
+  <button routerLink="/" class="btn btn-warning">
+    <i class="fas fa-arrow-left"></i> Voltar
+  </button>
+  <div class="detalhes-pais">
+    <div class="row" *ngFor="let p of pais">
+      <div class="col-6"><img [src]="p.flags?.svg" alt="Bandeira" /></div>
+      <div class="col-6">
+        <h3 class="mt-4">{{ p.name.common }}</h3>
+        <div class="row mt-2">
+          <div class="col-6">
+            <p><strong>População:</strong> {{ p.population }}</p>
+            <p><strong>Região:</strong> {{ p.region }}</p>
+            <p><strong>Sub Região:</strong> {{ p.subregion }}</p>
+            <p><strong>Capital:</strong> {{ p.capital[0] }}</p>
+          </div>
+          <div class="col-6">
+            <p><strong>Moeda:</strong> {{ p.currencies.chave }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="d-flex">
+            <p><strong>Países Fronteiriços:</strong> </p>
+            <div style=" margin: 10px" class="card" *ngFor="let border of p.borders">
+              <p>{{border}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="container">
-  <app-search></app-search>
+  <app-search (emmitSearch)="filterPesquisa($event)"></app-search>
   <section class="lista-paises">
     <div class="row">
       <div [routerLink]="['/detalhe', p.name.common]" *ngFor="let p of paises" class="card col-6 col-md-2">
@@ -7,7 +7,7 @@
           <img class="card-img-top" [src]="p.flags.png" alt="Imagem do País">
         </div>
         <div class="card-body">
-          <h5>{{p.name?.common}}</h5>
+          <h5>{{p.name.common}}</h5>
           <ul>
             <li> População: {{p.population | number}} </li>
             <li>Região: {{p.region}}</li>
