@@ -1,3 +1,4 @@
+import { Pais } from './../shared/models/Pais';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -13,6 +14,9 @@ export class PaisesService {
     return this.http.get<any>(Constantes.URL_ALL_PAISES);
   }
   getPais(nomePais: string): Observable<any[]>{
-    return this.http.get<any[]>(Constantes.URL_ALL_PAIS + `${nomePais}?fullText=true`);
+    return this.http.get<any[]>(Constantes.URL_PAIS + `${nomePais}?fullText=true`);
+  }
+  getPaisesByCode(codes: string): Observable<Pais[]>{
+    return this.http.get<Pais[]>(Constantes.URL_PAIS_BY_CODE+`${codes}`);
   }
 }
