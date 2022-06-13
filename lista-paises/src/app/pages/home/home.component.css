@@ -1,3 +1,13 @@
+.dropdown{
+  display: flex;
+  justify-content: end;
+}
+.dropdown .btn{
+  height: 40px;
+  margin-top: 18px;
+  background-color: #ced4da;
+  color: black;
+}
 .card {
   padding: 0;
   margin: 20px;
@@ -30,3 +40,16 @@ ul {
   transition: 0.4s ease-in-out;
   transform: scale(1.1);
 }
+@media (max-width: 800px) {
+  .dropdown{
+    justify-content: start;
+  }
+ }
+@media (max-width: 738px) {
+  .row, app-search, .dropdown{
+    display: flex;
+    justify-content: center;
+  }
+
+ }
+

@@ -13,3 +13,10 @@
   margin: 0px;
   padding: 5px;
 }
+
+@media (max-width: 778px) {
+  .content-info2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+ }
