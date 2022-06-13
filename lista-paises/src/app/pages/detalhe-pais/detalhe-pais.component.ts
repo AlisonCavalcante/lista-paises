@@ -27,13 +27,14 @@ export class DetalhePaisComponent implements OnInit {
     this.paisesService.getPais(nome).subscribe((res: Pais[]) => {
       this.pais = res;
       this.pais[0].currencies.chave = Object.keys(res[0].currencies)[0];
-      this.pais[0].languages.chave = Object.keys(res[0].languages)[0];
+      this.pais[0].languages = Object.values(res[0].languages);
+      console.log(this.pais[0].languages);
+
       if (this.pais[0].borders) {
         this.getPaisesBorders(this.pais[0].borders.toString());
       }
       // console.log(this.pais[0].currencies.chave)
-      // console.log(this.pais[0].languages.chaveF)
-      //  console.log(this.pais)
+      console.log(this.pais);
     });
   }
 
@@ -41,7 +42,6 @@ export class DetalhePaisComponent implements OnInit {
     this.paisesService.getPaisesByCode(paises).subscribe((res) => {
       for (var i = 0; i < this.pais[0].borders.length; i++) {
         this.pais[0].borders[i] = res[i].name.common;
-        console.log(this.pais[0].borders[i]);
       }
     });
   }

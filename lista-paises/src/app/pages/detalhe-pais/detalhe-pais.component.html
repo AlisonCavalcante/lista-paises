@@ -4,25 +4,43 @@
   </button>
   <div class="detalhes-pais">
     <div class="row" *ngFor="let p of pais">
-      <div class="col-12 col-md-6"><img [src]="p.flags?.svg" alt="Bandeira" /></div>
+      <div class="col-12 col-md-6">
+        <img [src]="p.flags?.svg" alt="Bandeira" />
+      </div>
       <div class="col-md-6">
         <h3 class="mt-4">{{ p.name.common }}</h3>
         <div class="row mt-2">
           <div class="col-6">
-            <p><strong>População:</strong> {{ p.population }}</p>
+            <p><strong>População:</strong> {{ p.population | number }}</p>
             <p><strong>Região:</strong> {{ p.region }}</p>
             <p><strong>Sub Região:</strong> {{ p.subregion }}</p>
             <p><strong>Capital:</strong> {{ p.capital[0] }}</p>
           </div>
           <div class="col-6">
             <p><strong>Moeda:</strong> {{ p.currencies.chave }}</p>
+            <div class="d-flex">
+              <p><strong>Idiomas:</strong></p>
+              <div class="d-flex">
+                <p style="margin-left: 5px;" *ngFor="let idiomas of p.languages">{{idiomas}}</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="d-flex content-borders">
-            <p><strong>Países Fronteiriços:</strong> </p>
-            <div style=" margin: 10px" class="card" *ngFor="let border of p.borders">
-              <p>{{border}}</p>
+            <p><strong>Países Fronteiriços:</strong></p>
+            <ng-template>
+              <div
+                style="margin: 10px"
+                class="card"
+                *ngFor="let border of p.borders; else: mensagem"
+              >
+                <p>{{ border }}</p>
+              </div>
+            </ng-template>
+
+            <div #mensagem>
+              <p>Não possui</p>
             </div>
           </div>
         </div>

@@ -12,9 +12,8 @@ export interface Pais{
     png: string;
     svg: string
   };
-  languages: {
-    chave: string;
-  }
+  languages:  string[];
+
   population: number;
   region: string;
   subregion: string;

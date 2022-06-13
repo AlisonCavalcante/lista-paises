@@ -2,15 +2,16 @@
   <app-search (emmitSearch)="filterPesquisa($event)"></app-search>
   <section class="lista-paises">
     <div class="row">
-      <div [routerLink]="['/detalhe', p.name.common]" *ngFor="let p of paises" class="card col-6 col-md-2">
+      <div [routerLink]="['/detalhe', p.name.common]" *ngFor="let p of paises" class="card col-6 col-md-3">
         <div style="padding: 0;" class="card-header">
           <img class="card-img-top" [src]="p.flags.png" alt="Imagem do País">
         </div>
         <div class="card-body">
-          <h5>{{p.name.common}}</h5>
+          <h5 class="card-body_name-pais">{{p.name.common}}</h5>
           <ul>
-            <li> População: {{p.population | number}} </li>
-            <li>Região: {{p.region}}</li>
+            <li><strong> População:</strong> {{p.population | number}} </li>
+            <li><strong>Região</strong> {{p.region}}</li>
+            <li *ngFor="let c of p.capital"><strong>Capital:</strong> {{c}}</li>
           </ul>
         </div>
       </div>

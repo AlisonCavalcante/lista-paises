@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   getAllPaises(){
     this.paisesService.getAll().subscribe((res) => {
       this.paises = res;
+      console.log(this.paises)
       this.setPaises  = res;
     });
   }
