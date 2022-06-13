@@ -4,8 +4,8 @@
   </button>
   <div class="detalhes-pais">
     <div class="row" *ngFor="let p of pais">
-      <div class="col-6"><img [src]="p.flags?.svg" alt="Bandeira" /></div>
-      <div class="col-6">
+      <div class="col-12 col-md-6"><img [src]="p.flags?.svg" alt="Bandeira" /></div>
+      <div class="col-md-6">
         <h3 class="mt-4">{{ p.name.common }}</h3>
         <div class="row mt-2">
           <div class="col-6">
@@ -19,7 +19,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="d-flex">
+          <div class="d-flex content-borders">
             <p><strong>Países Fronteiriços:</strong> </p>
             <div style=" margin: 10px" class="card" *ngFor="let border of p.borders">
               <p>{{border}}</p>
