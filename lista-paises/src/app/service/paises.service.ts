@@ -10,11 +10,11 @@ import { Constantes } from 'src/utils/Constantes';
 export class PaisesService {
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<any[]>{
-    return this.http.get<any>(Constantes.URL_ALL_PAISES);
+  getAll(): Observable<Pais[]> {
+    return this.http.get<Pais[]>(Constantes.URL_ALL_PAISES);
   }
-  getPais(nomePais: string): Observable<any[]>{
-    return this.http.get<any[]>(Constantes.URL_PAIS + `${nomePais}?fullText=true`);
+  getPais(nomePais: string): Observable<Pais[]>{
+    return this.http.get<Pais[]>(Constantes.URL_PAIS + `${nomePais}?fullText=true`);
   }
   getPaisesByCode(codes: string): Observable<Pais[]>{
     return this.http.get<Pais[]>(Constantes.URL_PAIS_BY_CODE+`${codes}`);

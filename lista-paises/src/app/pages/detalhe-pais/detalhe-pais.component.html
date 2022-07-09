@@ -14,10 +14,10 @@
             <p><strong>População:</strong> {{ p.population | number }}</p>
             <p><strong>Região:</strong> {{ p.region }}</p>
             <p><strong>Sub Região:</strong> {{ p.subregion }}</p>
-            <p><strong>Capital:</strong> {{ p.capital[0] }}</p>
+            <p *ngIf="p.capital"><strong>Capital:</strong> {{ p.capital[0] }}</p>
           </div>
           <div class=" col-md-6 content-info2">
-            <p><strong>Moeda:</strong> {{ p.currencies.chave }}</p>
+            <p><strong>Moeda:</strong> {{ p.currencies?.chave }}</p>
             <div class="d-flex">
               <p><strong>Idiomas:</strong></p>
               <div class="d-flex">

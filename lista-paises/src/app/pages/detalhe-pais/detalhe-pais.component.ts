@@ -26,15 +26,13 @@ export class DetalhePaisComponent implements OnInit {
   getPais(nome: string) {
     this.paisesService.getPais(nome).subscribe((res: Pais[]) => {
       this.pais = res;
-      this.pais[0].currencies.chave = Object.keys(res[0].currencies)[0];
+      if (res[0].currencies) {
+        this.pais[0].currencies.chave = Object.keys(res[0].currencies)[0];
+      }
       this.pais[0].languages = Object.values(res[0].languages);
-      console.log(this.pais[0].languages);
-
       if (this.pais[0].borders) {
         this.getPaisesBorders(this.pais[0].borders.toString());
       }
-      // console.log(this.pais[0].currencies.chave)
-      console.log(this.pais);
     });
   }
 
